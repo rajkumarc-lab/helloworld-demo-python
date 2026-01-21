@@ -7,7 +7,7 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v6
       - name: image
-        run: docker build -t rajkumarck/helloworld-demo-python:rt
+        run: docker build -t rajkumarck/helloworld-demo-python:rt .
       - name: verify image
         run: docker images
       - name: Docker Login
