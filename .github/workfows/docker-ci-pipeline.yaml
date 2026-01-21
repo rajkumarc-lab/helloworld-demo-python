@@ -15,3 +15,5 @@ jobs:
         with:
          username: ${{ vars.DOCKER.USERNAME }}
          password: ${{ secrets.DOCKER_TOKEN }}
+       - name: push image
+         run: docker push -t rajkumarck/helloworld-demo-python:rt
