@@ -7,12 +7,11 @@ jobs:
       - name: Code Checkout
         uses: actions/checkout@v6
       - name: image
-        run: docker build -t kandikattusumanth/helloworld-demo-pytho:KS .
+        run: docker build -t rajkumarck/helloworld-demo-python:rt
       - name: verify image
         run: docker images
       - name: Docker Login
         uses: docker/login-action@v3.6.0
         with:
-         username: YYY
-         password: YYY
-          run: docker images
+         username: ${{ vars.DOCKER.USERNAME }}
+         password: ${{ secrets.DOCKER_TOKEN }}
