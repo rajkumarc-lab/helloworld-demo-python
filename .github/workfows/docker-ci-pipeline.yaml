@@ -1,12 +1,18 @@
-name: docker-ci-pipeline
+name: docker-ci-pipiline
 on: push
 jobs:
-  dockerci-job:
+  docker-ci-job:
     runs-on: ubuntu-latest
     steps:
-        - name: Code Checkout
-          uses: actions/checkout@v6
-        - name: docker build image
-          run: docker build -t rajkumarck/helloworld-demo-python:rt 
-        - name: list the docker build image
+      - name: Code Checkout
+        uses: actions/checkout@v6
+      - name: image
+        run: docker build -t kandikattusumanth/helloworld-demo-pytho:KS .
+      - name: verify image
+        run: docker images
+      - name: Docker Login
+        uses: docker/login-action@v3.6.0
+        with:
+         username: YYY
+         password: YYY
           run: docker images
