@@ -5,4 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Code Checkout
-        uses: actions/checkout@v6
+          uses: actions/checkout@v6
+        - name: docker build image
+          run: docker build -t rajkumarck/helloworld-demo-python:rt 
+        - name: list the docker build image
+          run: docker images
+          
