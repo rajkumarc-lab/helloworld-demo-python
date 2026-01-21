@@ -10,4 +10,3 @@ jobs:
           run: docker build -t rajkumarck/helloworld-demo-python:rt 
         - name: list the docker build image
           run: docker images
-          
