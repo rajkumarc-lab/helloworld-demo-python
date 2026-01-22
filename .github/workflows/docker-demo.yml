@@ -1,5 +1,10 @@
 name: docker-ci-pipiline
-on: push
+on: 
+  push:
+      paths-ignore:
+           - 'README.md'
+           - 'CONTRIBUTING.md'
+           - 'License'
 jobs:
   docker-ci-job:
     runs-on: ubuntu-latest
