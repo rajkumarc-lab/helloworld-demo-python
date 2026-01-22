@@ -11,7 +11,7 @@ jobs:
       - name: verify image
         run: docker images
       - name: Create Container
-        run: docker run --name python-app -itd -p 8080:8080 ${{ vars.DOCKER_USERNAME }}/rajkumarck/helloworld-demo-python:rt
+        run: docker run --name python-app -itd -p 8080:8080 ${{ vars.DOCKER_USERNAME }}/helloworld-demo-python:rt
       - name: view Container
         run: docker ps
       - name: check Output
