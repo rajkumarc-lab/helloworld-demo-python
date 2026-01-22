@@ -12,10 +12,12 @@ jobs:
         run: docker images
       - name: Create Container
         run: docker run --name python-app -itd -p 8080:8080 ${{ vars.DOCKER_USERNAME }}/helloworld-demo-python:rt
+      - name: sleep
+        run: sleep 20
       - name: view Container
         run: docker ps
       - name: check Output
-        run: curl localhost:8080
+        run: curl -f http://localhost:8080
       - name: Docker Login
         uses: docker/login-action@v3.6.0
         with:
@@ -24,4 +26,4 @@ jobs:
       - name: push image
         run: docker push rajkumarck/helloworld-demo-python:rt
       - name: Container cleanup
-        run: docker rm python-app
+        run: docker rm -f python-app
