@@ -4,7 +4,7 @@ on:
       paths-ignore:
            - 'README.md'
            - 'CONTRIBUTING.md'
-           - 'License'
+           - 'LICENSE'
 jobs:
   docker-ci-job:
     runs-on: ubuntu-latest
