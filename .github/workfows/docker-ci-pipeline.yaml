@@ -33,7 +33,8 @@ jobs:
        -name: apply -yaml file
         run: 
           kubectl apply -f k8s/.
-          kubectl wait --for=condition=ready pod -l app=python-app
+          kubectl config set-context --current --namespace=python-app
+          kubectl wait --for=condition=ready pod -l app=hello-world
        -name: get-deployment-status
         run: |
           kubectl get ns
