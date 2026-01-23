@@ -33,3 +33,31 @@ jobs:
         run: docker push rajkumarck/helloworld-demo-python:rt
       - name: Container cleanup
         run: docker rm -f python-app
+k8scd-job:
+    needs: [dockerci-job]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v6
+      - name: start minikube
+        uses: medyagh/setup-minikube@latest    
+      - name : Test-minikube
+        run: kubectl get pods
+      - name : list all pods
+        run: kubectl get pods -A
+       -name: apply-yaml-file
+        run: 
+          kubectl apply -f k8s/.
+          kubectl config set-context --current --namespace=python-app
+          kubectl wait --for=condition=ready pod -l app=hello-world
+       -name: get-deployment-status
+        run: |
+          kubectl get ns
+          kubectl get deploy, service -n python-app
+        -name: test-service-urls
+         run: |
+          minikube service list
+          minikube service my-service --url
+          echo -n "------------------opening the service------------------"
+          curl $(minikube service my-service --url)/version
+        
