@@ -1,3 +1,5 @@
+
+
 name: docker-ci-pipiline
 on:
   push:
@@ -53,6 +55,6 @@ jobs:
       - name: Test service URLs
         run: |
           minikube service list
-          minikube service simba --url
+          minikube service hello-world --url
           echo -n "------------------opening the service------------------"
-          curl -f $(minikube service simba --url)
+          curl -f $(minikube service hello-world --url)
