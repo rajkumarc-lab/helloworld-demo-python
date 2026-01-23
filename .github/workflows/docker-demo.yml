@@ -29,6 +29,7 @@ jobs:
          username: ${{ vars.DOCKER_USERNAME }}
          password: ${{ secrets.DOCKER_TOKEN }}
       - name: push image
+      
         run: docker push rajkumarck/helloworld-demo-python:rt
       - name: Container cleanup
         run: docker rm -f python-app
