@@ -20,6 +20,7 @@ jobs:
       - name: container-cleanup
         run: docker-rm -f demo-python-app
     k8scd-job:
+    needs: [dockerci-job]
     runs-on: ubuntu-latest
     steps:
       - name: Code Checkout
